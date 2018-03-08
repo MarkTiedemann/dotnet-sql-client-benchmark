@@ -4,15 +4,30 @@
 
 ## Usage
 
-1.  **Build and start the `db`, `app`, and `bench` containers:**
+1.  **Build the test images:**
 
 ```powershell
-pwsh Run-Test.ps1
+pwsh New-Test.ps1
 ```
 
-_Note:_ This command requires [`docker`](https://docker.com).
+2.  **Start the test containers:**
 
-2.  **Open `localhost:8089` and run the benchmark.**
+```powershell
+pwsh Start-Test.ps1
+```
+
+3.  **Run your own benchmarks:**
+
+```powershell
+pwsh Invoke-Bench.ps1 -Path:/sync -Connections:10 -Duration:10 -Timeout:10
+pwsh Invoke-Bench.ps1 -Path:/async -Connections:10 -Duration:10 -Timeout:10
+```
+
+4.  **Stop the test containers:**
+
+```powershell
+pwsh Stop-Test.ps1
+```
 
 ## License
 

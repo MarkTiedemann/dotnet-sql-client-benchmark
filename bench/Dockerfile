@@ -1,4 +1,3 @@
-FROM python:3.6
-RUN pip install locustio
-COPY locustfile.py .
-ENTRYPOINT [ "locust" ]
+FROM node:9.7.1-alpine
+RUN npm install --global autocannon@2.0.1
+ENTRYPOINT [ "autocannon" ]
